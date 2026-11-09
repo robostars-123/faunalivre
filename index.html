@@ -92,6 +92,9 @@ maranhao:[
 [16,"Sabiá-da-mata","Turdus fumigatus","Florestas úmidas e áreas arborizadas.","Aparece entre as dez espécies mais registradas no levantamento do CETAS/MA citado no estudo."],
 [17,"Pipira-da-palmeira","Tangara palmarum","Áreas arborizadas, palmeirais e bordas de mata.","Incluída entre as dez espécies mais registradas em apreensões na Ilha de São Luís no recorte de 2019."]
 ]};
+// Os jogos utilizam esta lista compacta; ela é derivada do mesmo catálogo
+// para manter nomes, habitats e índices das fotografias sincronizados.
+const ANIMALS=Object.values(SPECIES).flat().map(([photo,name,latin,habitat])=>[name,latin,habitat]);
 const pages=[...document.querySelectorAll('.page')],home=document.getElementById('home'),nav=[...document.querySelectorAll('.side-nav button')];
 function showPage(id){home.style.display=id==='home'?'block':'none';pages.forEach(p=>p.classList.toggle('active',p.id===id));nav.forEach(b=>b.classList.toggle('active',b.dataset.page===id));window.scrollTo({top:0,behavior:'smooth'});}
 nav.forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
